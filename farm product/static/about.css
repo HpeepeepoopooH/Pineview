@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: black;
+}
+
+body {
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    background-image: linear-gradient(#4f8901, #8ab446);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.navbar {
+    display: flex;
+    gap: 8rem;
+}
+.navbar a {
+    color: #f3f4d3;
+    font-family: sans-serif;
+    font-size: 18px;
+}
+
+.logo {
+    font-family: 'Times New Roman', Times, serif;
+    color: #f3f4d3;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.group {
+    gap: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cart {
+    background-color: #bdd002;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+}
+.cart a {
+    color: #f3f4d3;
+}
+.cart i{
+    color: #f3f4d3;
+}
+.group i {
+    color: #f3f4d3;
+}
+
+.content {
+    padding: 0;
+    margin: 0;
+    position: relative;
+    padding: 0;
+}
+.title {
+    margin-top: 105px;
+    margin-left: 360px;
+    width: 60%;
+}
+.content .title h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 62px;
+    font-style: italic;
+    color: #3d3d3d;
+    border-bottom: 10px solid grey;
+}
+
+
+.wrapper {
+    margin: 100px auto;
+    width: 60%;
+}
+.wrapper-2 {
+    margin: 100px auto;
+    width: 60%;
+}
+.wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: 520px;
+    float: left;
+    margin: 15px;
+}
+.wrapper-2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: 520px;
+    float: right;
+    margin: 15px;
+}
+
+.text-box {
+    padding: 20px;
+    color: #fff;
+}
+.text-box h2 {
+    color: #3d3d3d;
+    font-size: 32px;
+}
+.text-box p {
+    color: #515151;
+    font-size: 18px;
+}

@@ -1,0 +1,610 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: black;
+}
+
+body, html {
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-color: #f5f5f5;
+    padding-top: 60px;
+    
+    font-family: Arial, sans-serif;
+}
+
+body {
+    padding-bottom: 80px;
+}
+
+/* Navbar */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    background-image: linear-gradient(#4f8901, #8ab446);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    color: #f3f4d3;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.navbar {
+    display: flex;
+    gap: 8rem;
+}
+
+.navbar a {
+    color: #f3f4d3;
+    font-family: sans-serif;
+    font-size: 18px;
+}
+
+.group {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart {
+    background-color: #bdd002;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+}
+
+.cart a {
+    color: #f3f4d3;
+}
+
+.cart i, .group i {
+    color: #f3f4d3;
+}
+
+
+/* Shopping cart styles */
+.project {
+    display: flex;
+    flex: 1; /* To make sure footer stays at the bottom */
+}
+
+.shop {
+    flex: 75%;
+}
+
+.box {
+    display: flex;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    background: #fff;
+    transition: all .6s ease;
+    border-radius: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.box:hover {
+    border: none;
+    transform: scale(1.01);
+}
+
+.box img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.content {
+    padding: 20px;
+    width: 100%;
+    position: relative;
+}
+
+.content h3 {
+    margin-bottom: 30px;
+}
+
+.content h4 {
+    margin-bottom: 50px;
+}
+
+.btn-area {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 25px;
+    background-color: #3a71a9;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn-area:hover {
+    background-color: #76bfb6;
+    color: #fff;
+    font-weight: 600;
+}
+
+.unit input {
+    width: 40px;
+    padding: 5px;
+    text-align: center;
+}
+
+.btn-area i {
+    margin-right: 5px;
+}
+
+.right-bar {
+    flex: 25%;
+    margin-left: 20px;
+    padding: 20px;
+    height: 210px;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.right-bar hr {
+    margin-bottom: 25px;
+}
+
+.right-bar p {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+
+.right-bar a {
+    background-color: #76bfb6;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    font-weight: 900;
+}
+
+.right-bar i {
+    margin-right: 15px;
+}
+
+.right-bar a:hover {
+    background-color: #3972a7;
+}
+
+
+/* Sidebar */
+.sidebar {
+    font-family: sans-serif;
+    position: fixed;
+    background-color: #d3e29d;
+    top: 7%;
+    left: -260px; /* Hide sidebar initially */
+    height: 100%;
+    width: 260px;
+    z-index: 1;
+    transition: left 0.3s ease;
+}
+
+.sidebar.active {
+    left: 0; /* Show sidebar when active */
+}
+
+.sidebar-list {
+    height: 100%;
+    padding: 30px 0 15px 0;
+    overflow: auto;
+}
+
+.sidebar-list::-webkit-scrollbar {
+    display: none;
+}
+
+.sidebar-list li {
+    transition: all .5s ease;
+}
+
+.sidebar-list li:hover {
+    background-color: #bdd002;
+}
+
+.sidebar-list li .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all .5s ease;
+    cursor: pointer;
+}
+
+.sidebar-list li.active .title {
+    background-color: #84a02b;
+}
+
+.sidebar-list li.active .fa-chevron-down {
+    transition: all .5s ease;
+    transform: rotate(180deg);
+}
+
+.sidebar-list li .title .link {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-list li .title i {
+    height: 50px;
+    min-width: 78px;
+    text-align: center;
+    line-height: 50px;
+    color: #333;
+    font-size: 20px;
+}
+
+.sidebar-list li .title .name {
+    font-size: 18px;
+    font-weight: 400;
+    color: #333;
+}
+
+/* Submenu */
+.sidebar-list li .submenu {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    transition: all .5s ease;
+}
+
+.sidebar-list li.dropdown.active .submenu {
+    width: unset;
+    height: unset;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 6px 6px 14px 80px;
+    background-color: #d3e29d;
+}
+
+.submenu .link {
+    color: #333;
+    font-size: 15px;
+    padding: 5px 0;
+    transition: all .5s ease;
+}
+
+.submenu .link:hover {
+    color: #f3f4d3;
+}
+
+.submenu-title {
+    display: none;
+}
+
+/* Upper Banner */
+.upper-banner {
+    position: relative;
+    height: 360px;
+    z-index: 0;
+    max-width: 1350px;
+    width: 60%;
+    padding: 0;
+    top: 105px;
+    left: 16%;
+}
+
+.upper-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Search box */
+.search-box {
+    margin: 0;
+    padding: 0;
+    width: 600px;
+    background: #fff;
+    margin: 150px 25% 0;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+}
+
+input {
+    padding-left: 5px;
+    flex: 1;
+    height: 50px;
+    background: transparent;
+    border-color: #555;
+    border-radius: 2rem;
+    outline: 0;
+    border: 0;
+    font-size: 18px;
+}
+
+button {
+    background: transparent;
+    height: 50px;
+    outline: 0;
+    border: 0;
+}
+
+button .fa-solid {
+    width: 25px;
+    padding: 5px;
+    color: #555;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: #555 rgba(1, 1, 1, 0);
+}
+
+::placeholder {
+    color: #555;
+}
+
+.result-box ul {
+    border-top: 1px solid #999;
+    padding: 15px 10px;
+}
+
+.result-box ul li {
+    list-style: none;
+    border-radius: 3px;
+    padding: 15px 10px;
+    cursor: pointer;
+}
+
+.result-box ul li:hover {
+    background: #e9f3ff;
+}
+
+/* Filter buttons and products */
+.container {
+    background: transparent;
+    position: relative;
+    max-width: 1350px;
+    width: 100%;
+    padding: 20px 0;
+    top: 40px;
+    left: 16%;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.container button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background: #F8DDA4;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.container button.active {
+    background-color: #d45113;
+    color: #fff;
+}
+
+.cards {
+    position: relative;
+    display: flex;
+    margin-top: 30px;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.item {
+    flex-basis: 300px;
+    padding: 0;
+    border: 2px solid #fff;
+    border-radius: 1px;
+    background-color: #fff;
+}
+
+.item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 1px;
+}
+
+.item:hover {
+    border: 2px solid #ee4d2d;
+    background-color: #ee4d2d;
+    cursor: pointer;
+    transition: 0.25s all ease-in;
+}
+
+.card-body {
+    padding: 5%;
+}
+
+.card-title {
+    font-size: 16px;
+}
+
+.card-text {
+    font-size: 20px;
+}
+
+/* Form styles */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input, form select {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+form button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+/* Footer */
+.footer-content {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 20px 100px;
+}
+
+.footer-bottom {
+    margin-top: 10px;
+}
+
+/* Modal styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-button {
+    display: block;
+    margin: 15px 0;
+    padding: 10px 20px;
+    background-color: #4f8901;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.modal-button:hover {
+    background-color: #8ab446;
+}
+
+
+/* Center the content wrapper */
+.content-wrapper {
+    width: 60%;
+    margin: 0 auto;
+    padding-bottom: 50px; /* Ensure there is space at the bottom */
+    background-color: #f5f5f5; /* Match the background color to the body */
+    padding-top: 50px;
+}
+
+/* Style the product grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.product-item {
+    background: #fff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transition: transform 0.2s;
+}
+
+.product-item:hover {
+    transform: scale(1.05);
+}
+
+.product-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.product-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-size: 1rem;
+    color: #4CAF50;
+}
+
+/* Ensure footer is not covered by the grid */
+.footer-content {
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
+
+

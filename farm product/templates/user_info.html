@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" ref="{{ url_for('static', filename='user_info.css') }}">
+    <script src="https://kit.fontawesome.com/dc8e8dbaca.js" crossorigin="anonymous"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="header">
+        <a href="{{ url_for('index') }}" class="logo">logo</a>
+        <nav class="navbar">
+            <a href="{{ url_for('index') }}">Products</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('news') }}">News</a>
+        </nav>
+        <div class="group">
+            <div class="cart">
+                <a href="{{ url_for('cart') }}"><i class="fa-solid fa-cart-shopping"></i> Cart </a>
+            </div>
+            <a href="#" id="accountButton"><i class="fa-solid fa-user"></i></a>
+        </div>
+    </header>
+
+<!-- Product information -->
+    <div class="wrapper">
+        <div class="image">
+            <img src="img_avatar.png" alt="Avatar">
+            <i style='font-size:24px' class='far'>&#xf044;</i>
+        </div>
+        <div class="information">
+            <p>My account</p>
+            <h1>Username</h1>
+            <h4>Customer</h4>
+        </div>
+    </div>
+    <div class="product-details">
+        <h2>Personal details</h2><br>
+        <p>First name: </p><br>
+        <p>Last name: </p><br>
+        <p>Address: </p><br>
+
+        <h2>Contacts information</h2><br>
+        <p>Email:</p><br>
+        <p>Phone number: </p>
+    </div>
+</body>
+</body>
+</html>

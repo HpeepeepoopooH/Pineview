@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Product</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="header">
+        <a href="{{ url_for('index') }}" class="logo">logo</a>
+        <nav class="navbar">
+            <a href="{{ url_for('index') }}">Products</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('news') }}">News</a>
+        </nav>
+        <div class="group">
+            <div class="cart">
+                <a href="{{ url_for('cart') }}"><i class="fa-solid fa-cart-shopping"></i> Cart </a>
+            </div>
+            <a href="#" id="accountButton"><i class="fa-solid fa-user"></i></a>
+        </div>
+    </header>
+    <main>
+        <h1>Remove Product</h1>
+        <form action="{{ url_for('remove', id=product['id']) }}" method="post">
+            <p>Are you sure you want to remove the product "{{ product['name'] }}"?</p>
+            <input type="submit" value="Remove Product">
+        </form>
+    </main>
+</body>
+</html>

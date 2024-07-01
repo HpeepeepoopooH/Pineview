@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://kit.fontawesome.com/dc8e8dbaca.js" crossorigin="anonymous"></script>
+    <title>Homepage | Pineview Farm</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="header">
+        <a href="{{ url_for('index') }}" class="logo">logo</a>
+        <nav class="navbar">
+            <a href="{{ url_for('index') }}">Products</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('news') }}">News</a>
+        </nav>
+        <div class="group">
+            <div class="cart">
+                <a href="{{ url_for('cart') }}"><i class="fa-solid fa-cart-shopping"></i> Cart </a>
+            </div>
+            <a href="#" id="accountButton"><i class="fa-solid fa-user"></i></a>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <ul class="sidebar-list">
+            <li>
+                <div class="title">
+                    <a href="#" class="link">
+                        <i class="fa-solid fa-grip-vertical"></i>
+                        <span class="name">Dashboard</span>
+                    </a>
+                </div>
+                <div class="submenu"></div>
+            </li>
+            <li class="dropdown">
+                <div class="title">
+                    <a href="#" class="link">
+                        <i class="fa-solid fa-grip-vertical"></i>
+                        <span class="name">Dashboard</span>
+                    </a>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="submenu">
+                    <a href="#" class="link submenu-title">Dashboard</a>
+                    <a href="#" class="link">Dashboard</a>
+                    <a href="#" class="link">Dashboard</a>
+                    <a href="#" class="link">Dashboard</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Banner -->
+    <div class="upper-banner">
+        <img src="{{ url_for('static', filename='image/banner.jpeg') }}" alt="">
+    </div> 
+
+    <!-- Content Wrapper -->
+    <div class="content-wrapper">
+        
+
+        <!-- Search box -->
+        <div class="search-box">
+            <div class="row">
+                <input type="text" id="input-box" placeholder="Search anything" autocomplete="off">
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <!-- result box -->
+            <div class="result-box">
+                <ul>
+                    <li>Carrot</li>
+                    <li>Apple</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Filter buttons and products -->
+        <div class="container">
+            <div class="buttons">
+                <button class="active" data-name="all">Show all</button>
+                <button data-name="fruits">fruits</button>
+                <button data-name="vegetables">vegetables</button>
+                <button data-name="others">others</button>
+            </div>
+            <div class="product-grid">
+                {% for product in products %}
+                <div class="product-item">
+                    <a href="{{ url_for('product_page', product_id=product['id']) }}">
+                        <img src="{{ url_for('static', filename='image/' + product['image']) }}" alt="{{ product['name'] }}">
+                        <h6 class="product-title">{{ product['name'] }}</h6>
+                        <p class="product-price">${{ product['price'] }}</p>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-content">
+        <div class="footer-bottom">
+            <p>Pineview Farm</p>
+            <p>Email: contacts@pineviewfarm.com</p>
+            <p>Tel:</p>
+            <p>Address:</p>
+        </div>
+    </footer>
+
+    <!-- Account Modal -->
+    <div id="accountModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <a href="{{ url_for('login') }}" class="modal-button">Login</a>
+            <a href="{{ url_for('register') }}" class="modal-button">Register</a>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Toggle sidebar
+        document.querySelectorAll('.sidebar-list .title').forEach(item => {
+            item.addEventListener('click', () => {
+                let parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+
+        // Account Modal
+        var modal = document.getElementById("accountModal");
+        var btn = document.getElementById("accountButton");
+        var span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Product</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="header">
+        <a href="{{ url_for('index') }}" class="logo">logo</a>
+        <nav class="navbar">
+            <a href="{{ url_for('index') }}">Products</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('news') }}">News</a>
+        </nav>
+        <div class="group">
+            <div class="cart">
+                <a href="{{ url_for('cart') }}"><i class="fa-solid fa-cart-shopping"></i> Cart </a>
+            </div>
+            <a href="#" id="accountButton"><i class="fa-solid fa-user"></i></a>
+        </div>
+    </header>
+    <main>
+        <h1>Edit Product</h1>
+        <form action="{{ url_for('edit', id=product['id']) }}" method="post">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" value="{{ product['name'] }}" required>
+            
+            <label for="type">Type</label>
+            <input type="text" name="type" id="type" value="{{ product['type'] }}" required>
+            
+            <label for="price">Price</label>
+            <input type="number" name="price" id="price" value="{{ product['price'] }}" required step="0.01">
+            
+            <label for="quantity">Quantity</label>
+            <input type="number" name="quantity" id="quantity" value="{{ product['quantity'] }}" required>
+            
+            <label for="description">Description</label>
+            <textarea name="description" id="description" required>{{ product['description'] }}</textarea>
+            
+            <label for="organic">Organic</label>
+            <select name="organic" id="organic">
+                <option value="Yes" {% if product['organic'] == 'Yes' %}selected{% endif %}>Yes</option>
+                <option value="No" {% if product['organic'] == 'No' %}selected{% endif %}>No</option>
+            </select>
+            
+            <input type="submit" value="Update Product">
+        </form>
+    </main>
+</body>
+</html>

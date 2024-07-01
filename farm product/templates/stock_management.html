@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stock.css') }}">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="header">
+        <a href="{{ url_for('index') }}" class="logo">logo</a>
+        <nav class="navbar">
+            <a href="{{ url_for('index') }}">Products</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('news') }}">News</a>
+        </nav>
+        <div class="group">
+            <div class="cart">
+                <a href="{{ url_for('cart') }}"><i class="fa-solid fa-cart-shopping"></i> Cart </a>
+            </div>
+            <a href="#" id="accountButton"><i class="fa-solid fa-user"></i></a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="stock-management">
+            <h1>Overview</h1>
+            <ul>
+                <li>Total sale:</li>
+                <li>Total orders:</li>
+                <li>Top Products Last Week</li>
+                <li>Top Products Last Month</li>
+                <li>Top Products Last Quarter</li>
+                <li>Low stock alerts:</li>
+            </ul>
+
+            <h2>Product list</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Description</th>
+                        <th>Organic</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.type }}</td>
+                        <td>{{ product.price }}</td>
+                        <td>{{ product.quantity }}</td>
+                        <td>{{ product.description }}</td>
+                        <td>{{ product.organic }}</td>
+                        <td>
+                            <a href="{{ url_for('edit', id=product.id) }}">Edit</a>
+                            <form action="{{ url_for('remove', id=product.id) }}" method="post" style="display:inline;">
+                                <button type="submit">Remove</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            
+            <a href="{{ url_for('add') }}">Add Product</a>
+        </div>
+    </div>
+
+    <footer>
+        <div>
+            Pineview Farm<br>
+            Email: contacts@pineviewfarm.com<br>
+            Tel:<br>
+            Address:<br>
+        </div>
+        <div>
+            Sign up to receive newsletter from us
+            <form action="{{ url_for('newsletter') }}" method="post">
+                <input type="email" name="email" placeholder="Your email">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('accountButton').addEventListener('click', function() {
+            // Implement account login/register popup
+        });
+    </script>
+</body>
+</html>

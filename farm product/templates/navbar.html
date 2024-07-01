@@ -1,0 +1,42 @@
+<nav>
+    <div class="logo" style="width: 20%;">
+        <a href="{{ url_for('lindex') }}">Logo</a>
+    </div>
+    <div class="nav-links" style="width: 60%;">
+        <ul>
+            <li><a href="{{ url_for('index') }}">Product</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">News</a></li>
+        </ul>
+    </div>
+    <div class="user-actions" style="width: 20%;">
+        <ul>
+            <li>
+                <button id="cartButton">Cart ({{ session.get('cart') | length }})</button>
+                <div id="cartDropdown" class="cart-dropdown-content">
+                    {% if session.get('cart') %}
+                        <ul>
+                            {% for item in session.get('cart') %}
+                                <li>{{ item.name }} - {{ item.quantity }}</li>
+                            {% endfor %}
+                        </ul>
+                        <a href="{{ url_for('cart') }}">Click here for more details</a>
+                    {% else %}
+                        <p>No items in cart</p>
+                    {% endif %}
+                </div>
+            </li>
+            <li>
+                <button id="accountButton">Account</button>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div id="accountModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <a href="{{ url_for('login') }}" class="modal-button">Login</a>
+        <a href="{{ url_for('register') }}" class="modal-button">Register</a>
+    </div>
+</div>

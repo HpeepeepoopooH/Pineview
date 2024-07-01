@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
+    <script src="https://kit.fontawesome.com/dc8e8dbaca.js" crossorigin="anonymous"></script>
+    <title>About Us | Pineview Farm</title>
+</head>
+
+
+<body>
+    <!-- Navbar -->
+    <header class="header">
+        <a href="{{ url_for('index') }}" class="logo">logo</a>
+        <nav class="navbar">
+            <a href="{{ url_for('index') }}">Products</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('news') }}">News</a>
+        </nav>
+        <div class="group">
+            <div class="cart">
+                <a href="{{ url_for('cart') }}"><i class="fa-solid fa-cart-shopping"></i> Cart </a>
+            </div>
+            <a href="#" id="accountButton"><i class="fa-solid fa-user"></i></a>
+        </div>
+    </header>
+
+    
+    <div class="content">
+        <div class="title">
+            <h1>About us:</h1>
+        </div>
+        <div class="wrapper">
+            <div class="image"><img src="{{ url_for('static', filename='image/farmer-2.jpeg') }}" alt="Farmer Image"></div>
+            <div class="text-box">
+                <h2>Lorem inspum</h2>
+                <p>Welcome to [Business Name], your one-stop destination for fresh and locally
+                    sourced vegetables. At [Business Name], we take pride in offering a wide variety
+                    of high-quality, farm-fresh produce to meet all your culinary needs. With a focus 
+                    on sustainability and supporting local farmers, we strive to provide our customers 
+                    with the freshest and most flavorful vegetables available. Whether you're looking 
+                    for everyday staples or specialty items, [Business Name] has you covered. Join us 
+                    in our mission to bring the best of the season to your table!</p>
+            </div>
+        </div>
+
+        <div class="wrapper-2">
+            <div class="image"><img src="{{ url_for('static', filename="image/farmer.jpeg") }}" alt="Farmer Image"></div>
+            <div class="text-box">
+                <h2>Lorem imspum</h2>
+                <p>At [Business Name], we are committed to providing you with the freshest, highest 
+                    quality produce while prioritizing sustainability and environmental responsibility. 
+                    Our vegetables are lovingly grown using organic farming practices, free from harmful 
+                    chemicals and pesticides, ensuring that you receive pure, wholesome products that 
+                    are good for you and the environment. With our convenient home delivery service, 
+                    you can enjoy farm-fresh goodness without leaving the comfort of your home. 
+                    Experience the difference with [Business Name] - where organic, eco-friendly 
+                    veggies meet convenience and taste!"</p>
+            </div>
+        </div>
+
+        <div class="wrapper">
+            <div class="image"><img src="{{ url_for('static', filename="image/farmer-3.jpeg") }}" alt="Farmer Image"></div>
+            <div class="text-box">
+                <h2>Lorem imspum</h2>
+                <p>At [Business Name], we are committed to providing you with the freshest, highest 
+                    quality produce while prioritizing sustainability and environmental responsibility. 
+                    Our vegetables are lovingly grown using organic farming practices, free from harmful 
+                    chemicals and pesticides, ensuring that you receive pure, wholesome products that 
+                    are good for you and the environment. With our convenient home delivery service, 
+                    you can enjoy farm-fresh goodness without leaving the comfort of your home. 
+                    Experience the difference with [Business Name] - where organic, eco-friendly 
+                    veggies meet convenience and taste!"</p>
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="image"><img src="{{ url_for('static', filename="image/farmer-4.jpeg") }}" alt="Farmer Image"></div>
+            <div class="text-box">
+                <h2>Lorem imspum</h2>
+                <p>At [Business Name], we are committed to providing you with the freshest, highest 
+                    quality produce while prioritizing sustainability and environmental responsibility. 
+                    Our vegetables are lovingly grown using organic farming practices, free from harmful 
+                    chemicals and pesticides, ensuring that you receive pure, wholesome products that 
+                    are good for you and the environment. With our convenient home delivery service, 
+                    you can enjoy farm-fresh goodness without leaving the comfort of your home. 
+                    Experience the difference with [Business Name] - where organic, eco-friendly 
+                    veggies meet convenience and taste!"</p>
+            </div>
+        </div>
+        
+    </div>
+
+</footer>
+
+<!-- Account Modal -->
+<div id="accountModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <a href="{{ url_for('login') }}" class="modal-button">Login</a>
+        <a href="{{ url_for('register') }}" class="modal-button">Register</a>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+    // Account Modal
+    var modal = document.getElementById("accountModal");
+    var btn = document.getElementById("accountButton");
+    var span = document.getElementsByClassName("close")[0];
+
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+</body>
+</html>

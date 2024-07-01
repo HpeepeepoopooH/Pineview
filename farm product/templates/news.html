@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='news.css') }}">
+    <script src="https://kit.fontawesome.com/dc8e8dbaca.js" crossorigin="anonymous"></script>
+    <title>News | Pineview Farm</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="header">
+        <a href="{{ url_for('index') }}" class="logo">logo</a>
+        <nav class="navbar">
+            <a href="{{ url_for('index') }}">Products</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('news') }}">News</a>
+        </nav>
+        <div class="group">
+            <div class="cart">
+                <a href="{{ url_for('cart') }}"><i class="fa-solid fa-cart-shopping"></i> Cart </a>
+            </div>
+            <a href="#" id="accountButton"><i class="fa-solid fa-user"></i></a>
+        </div>
+    </header>
+
+
+    <!--link JS-->
+    <script src="main.js"></script>
+
+    <!-- Articles -->
+    <div class="main-title">
+        <h1>News today!</h1>
+    </div>
+    <div class="news">
+        <div class="article">
+            <div class="image">
+                <img src="{{ url_for('static', filename='image/farmer.jpeg') }}" alt="Farmer Image">
+            </div>
+            <div class="text-box">
+                <h3>Lorem Inspum</h3>
+                <span><i class="fa-solid fa-pen-nib"></i> Jane Birkin </span> <br>
+                <span><i class="fa-regular fa-calendar"></i> Date: 27/6/2024</span>
+                <div class="text">
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes</p>
+                </div>
+                <a href="single-news-article.html">
+                    <div class="read-more">
+                        <h4>Read more </h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="article">
+            <div class="image">
+                <img src="{{ url_for('static', filename='image/farmer-2.jpeg') }}" alt="Farmer Image">
+            </div>
+            <div class="text-box">
+                <h3>Lorem Inspum</h3>
+                <span><i class="fa-solid fa-pen-nib"></i> Jane Birkin </span> <br>
+                <span><i class="fa-regular fa-calendar"></i> Date: 27/6/2024</span>
+                <div class="text">
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes</p>
+                </div>
+                <a href="single-news-article.html">
+                    <div class="read-more">
+                        <h4>Read more </h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="article">
+            <div class="image">
+                <img src="{{ url_for('static', filename='image/farmer-3.jpeg') }}" alt="Farmer Image">
+            </div>
+            <div class="text-box">
+                <h3>Lorem Inspum</h3>
+                <span><i class="fa-solid fa-pen-nib"></i> Jane Birkin </span> <br>
+                <span><i class="fa-regular fa-calendar"></i> Date: 27/6/2024</span>
+                <div class="text">
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes</p>
+                </div>
+                <a href="single-news-article.html">
+                    <div class="read-more">
+                        <h4>Read more </h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="article">
+            <div class="image">
+                <img src="{{ url_for('static', filename='image/farmer-4.jpeg') }}" alt="Farmer Image">
+            </div>
+            <div class="text-box">
+                <h3>Lorem Inspum</h3>
+                <span><i class="fa-solid fa-pen-nib"></i> Jane Birkin </span> <br>
+                <span><i class="fa-regular fa-calendar"></i> Date: 27/6/2024</span>
+                <div class="text">
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes</p>
+                </div>
+                <a href="single-news-article.html">
+                    <div class="read-more">
+                        <h4>Read more </h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+    </div>
+
+</body>
+</html>
